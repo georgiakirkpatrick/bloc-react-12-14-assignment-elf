@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 
 import './App.css';
-import { CartItem } from "./CartItem/CartItem";
+import { Cart } from "./Cart/Cart";
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -79,81 +79,24 @@ export default class App extends Component {
       );
     });
 
-    // Add a "selected" variable to pass state to Cart
     const selected = this.state.selected
 
-    // Move to CartItemList.js
-    // const summary = Object.keys(this.state.selected).map((feature, idx) => {
-    const summary = Object.keys(selected).map((feature, idx) => {
-
-      const featureHash = feature + '-' + idx;
-      const selectedOption = selected[feature];
-
-      return (
-        <CartItem key={featureHash} feature={feature} selectedOption={selectedOption} USCurrencyFormat={USCurrencyFormat}/>
-        // Move to CartItem.js
-        // <div className="summary__option" key={featureHash}>
-        //   <div className="summary__option__label">{feature} </div>
-        //   <div className="summary__option__value">{selectedOption.name}</div>
-        //   <div className="summary__option__cost">
-        //     {USCurrencyFormat.format(selectedOption.cost)}
-        //   </div>
-        // </div>
-        //
-    
-      );
-    });
-    //
-
-    // Move to Cart.js
-    const total = Object.keys(selected).reduce(
-      (acc, curr) => acc + this.state.selected[curr].cost,
-      0
-    );
-    // 
-
     return (
-      // Keep this in App.js
       <div className="App">
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
-        {/*  */}
-
-        {/* LaptopCustomizer tag here.  Props needed:  */}
 
         <main>
-
-          {/* Move to LaptopCustomizer: */}
+         
           <form className="main__form">
             <h2>Customize your laptop</h2>
 
-            {/* Move to CustomizerOptions */}
             {features}
-            {/*  */}
 
           </form>
-          {/*  */}
 
-          {/* Cart tag here.  Props needed: USCurrencyFormat selected */}
-
-          {/* Move to Cart tag*/}
-          <section className="main__summary">
-            <h2>Your cart</h2>
-
-            {/* Move to CartItemsList */}
-            {summary}
-            {/* */}
-
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
-          </section>
-          {/* */}       
-
+          <Cart USCurrencyFormat={USCurrencyFormat} selected={selected} />
         </main>
       </div>
     );

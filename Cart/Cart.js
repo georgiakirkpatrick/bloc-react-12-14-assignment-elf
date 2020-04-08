@@ -1,14 +1,20 @@
 import React from "react";
+import { CartItemList } from "./CartItemList/CartItemList";
 
-export const Cart = (props) => {
+const Cart = (props) => {
+    const total = Object.keys(selected).reduce(
+        (acc, curr) => acc + this.state.selected[curr].cost,
+        0
+    );
+
+    console.log('selected', props.selected)
+
+
     return (
         <section className="main__summary">
             <h2>Your cart</h2>
 
-            {/* CartItemsList tag here props needed:  */}
-            {/* Move to CartItemsList */}
-            {summary}
-            {/* */}
+            <CartItemList selected={props.selected} USCurrencyFormat={props.USCurrencyFormat} />
 
             <div className="summary__total">
                 <div className="summary__total__label">Total</div>
@@ -19,3 +25,5 @@ export const Cart = (props) => {
         </section>
     )  
 }
+
+export default Cart;

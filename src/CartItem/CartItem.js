@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CartItem = (props) => {
+const CartItem = (props) => {
     return (
         <div className="summary__option">
           <div className="summary__option__label">{props.feature} </div>
@@ -11,3 +11,5 @@ export const CartItem = (props) => {
         </div>
     )
 }
+
+export default CartItem;
