@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 // in both URLs and html attributes
 
 import './App.css';
+import { CustomizerForm } from './CustomizerForm/CustomizerForm';
 import { Cart } from "./Cart/Cart";
-import { FeatureItem } from './FeatureItem/FeatureItem';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -49,11 +49,6 @@ export default class App extends Component {
 
   render() {
     const selected = this.state.selected;
-    const features = Object.keys(this.props.features).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      
-      return <FeatureItem key={featureHash} features={this.props.features} feature={feature} USCurrencyFormat={USCurrencyFormat} updateFeature={this.updateFeature} featureHash={featureHash}/>
-    });   
 
     return (
       <div className="App">
@@ -62,15 +57,7 @@ export default class App extends Component {
         </header>
 
         <main>
-          {/* <CustomizerForm  /> */}
-            <form className="main__form">
-              <h2>Customize your laptop</h2>
-
-              {/* {FeatureList} */}
-              {features}
-
-            </form>
-
+          <CustomizerForm features={this.props.features} USCurrencyFormat={USCurrencyFormat} updateFeature={this.updateFeature}/>
           <Cart USCurrencyFormat={USCurrencyFormat} selected={selected} />
         </main>
       </div>
