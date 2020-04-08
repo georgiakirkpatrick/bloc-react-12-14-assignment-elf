@@ -4,8 +4,6 @@ import { CartItem } from "../CartItem/CartItem";
 export const CartItemList =(props) => {
   const selected = props.selected;
 
-  console.log('selected', props.selected)
-
   const summary = Object.keys(selected).map((feature, idx) => {
 
     const featureHash = feature + '-' + idx;
