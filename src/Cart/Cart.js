@@ -1,5 +1,6 @@
 import React from "react";
 import { CartItemList } from "../CartItemList/CartItemList";
+import './Cart.css';
 
 export const Cart = (props) => {
     const USCurrencyFormat = props.USCurrencyFormat;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FeatureItem } from '../FeatureItem/FeatureItem';
+import './CustomizerForm.css';
 
 export const CustomizerForm = (props) => {
     const featuresList = Object.keys(props.features).map((feature, idx) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FeatureOption } from '../FeatureOption/FeatureOption';
 import slugify from 'slugify';
+import './FeatureItem.css';
 
 export const FeatureItem = (props) => {
     const options = props.features[props.feature].map(item => {

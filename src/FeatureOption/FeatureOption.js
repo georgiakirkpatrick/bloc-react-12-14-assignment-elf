@@ -1,5 +1,6 @@
 import React from 'react';
 import slugify from 'slugify';
+import './FeatureOption.css';
 
 export const FeatureOption = (props) => {
     const feature = props.feature;
